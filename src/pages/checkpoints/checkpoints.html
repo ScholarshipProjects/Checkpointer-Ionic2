@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Checkpoints</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div>
+    <h1>Checkpoints</h1>
+  </div>
+  <button ion-button color="light" (click)="scan()">Scan Code</button>
+  <button ion-button color="light" (click)="getCheckpoints()">Get checkpoints</button>
+  <button ion-button color="light" (click)="addCheckpoint('wtf')">Get checkpoints</button>
+  
+  <div #map id="map"></div>
+</ion-content>

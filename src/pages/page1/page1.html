@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Checkpoint Tasks</ion-title>
+  </ion-navbar>
+</ion-header>
+<!--content-->
+<ion-content padding>
+  <ion-list *ngIf="!selectedItem">
+    <!--<ion-list-header>
+      <div class="item-inner">
+        <div class="input-wrapper">
+          Tomorrow
+        </div>
+      </div>
+    </ion-list-header>-->
+    <ion-item *ngFor="let item of listItems" (click)="openPage(item)" margin-bottom>
+      <ion-avatar item-left>
+        <img [src]="item.avatar">
+      </ion-avatar>
+      <h2>{{item.name}}</h2>
+      <h3>{{item.description}}</h3>
+      <p>{{item.lat}},{{item.lon}}</p>
+      <ion-note item-right class="note note-ios">{{item.time | date:['shortTime']}}</ion-note>
+    </ion-item>
+  </ion-list>
+  <!--Selected Item Nav Page-->
+  <div *ngIf="selectedItem">
+    <ion-card>
+      <img [src]="selectedItem.image">
+      <button ion-button full (click)="openMapPage(selectedItem)">Load Map</button>
+      <ion-fab right top>
+        <button ion-fab color="light">
+          <img [src]="selectedItem.avatar" alt="">
+        </button>
+      </ion-fab>
+      <ion-card>
+        <ion-card-header>
+          Description
+        </ion-card-header>
+        <ion-card-content>
+          {{selectedItem.description}}
+        </ion-card-content>
+      </ion-card>
+      <ion-item>
+        <ion-icon name="ios-information-circle" item-left large></ion-icon>
+        <h2>{{selectedItem.name}}</h2>
+        <p>{{selectedItem.lat}}, {{selectedItem.lon}}</p>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="ios-time" item-left large></ion-icon>
+        <!--<span item-left>Created</span>-->
+        <p>{{selectedItem.time | date: ['medium']}}</p>
+        <!--<button ion-button icon-left clear item-right (click)="startNavigation()">
+        <ion-icon name="navigate"></ion-icon>
+          Start
+      </button>-->
+      </ion-item>
+    </ion-card>
+  </div>
+  <!--<button ion-button secondary menuToggle>Toggle Menu</button>-->
+</ion-content>

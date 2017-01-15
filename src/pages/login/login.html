@@ -1,0 +1,52 @@
+<!--<ion-header>
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>-->
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+    </ion-card-header>
+    <ion-card-content>
+      <!--<img src="assets/images/logo.png" alt="">-->
+      <!--<h1 text-center margin-bottom>
+        Login
+      </h1>-->
+      <!--<hr>-->
+      <h1 text-center margin-top margin-bottom class="top-title">
+        <ion-icon name="ios-lock"> </ion-icon>
+      </h1>
+      <form #form="ngForm" (ngSubmit)="submitForm(form)" novalidate>
+        <ion-list inset>
+          <ion-item>
+            <ion-label>Email</ion-label>
+            <ion-input type="text" required [(ngModel)]="user.email" name="email" ngControl="email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Password</ion-label>
+            <ion-input type="password" [(ngModel)]="user.password" name="password" ngControl="password"></ion-input>
+          </ion-item>
+          <button ion-button type="submit" block>Login</button>
+          <div text-center>
+          <a >Forgot password ?</a>
+            
+          </div>
+        </ion-list>
+      </form>
+      <h1 text-center padding margin-bottom>Or</h1>
+
+      <button ion-button block icon-left color="danger" margin-bottom>
+        <ion-icon name="logo-google"></ion-icon>
+          Google 
+        </button>
+      <button ion-button block icon-left margin-bottom>
+        <ion-icon name="logo-facebook"></ion-icon>
+          Facebook 
+        </button>
+      <button color="secondary" ion-button block icon-left margin-bottom>
+        <ion-icon name="logo-github"></ion-icon>
+          Github 
+        </button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
